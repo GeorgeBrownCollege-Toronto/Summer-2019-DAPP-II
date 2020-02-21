@@ -1,0 +1,18 @@
+@font-face {
+    font-family: "Roboto-Light";
+    font-style: normal;
+    font-weight: normal;
+    src: local("Roboto-Light"),
+      url("./Roboto-Light.ttf") format("trueType");
+  }
+
+.hello {
+  color: red;
+  background: url("./icon.svg");
+  font-family: "Roboto-Light";
+}
+
+img{
+  width: 100px;
+  height: 100px;
+}
