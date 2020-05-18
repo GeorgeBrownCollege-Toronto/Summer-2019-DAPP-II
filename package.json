@@ -1,0 +1,37 @@
+{
+  "name": "survey-market-place-dapp-ii-winter-2020",
+  "version": "5.2.3",
+  "description": "Survey marketplace for survey creators",
+  "homepage": "https://georgebrowncollege-toronto.github.io/SURVEY-MARKET-PLACE-DAPP-II-WINTER-2020",
+  "scripts": {
+    "test": "embark test",
+    "predeploy": "embark build ropsten",
+    "deploy":"gh-pages -d dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "directory": "dapps/templates/demo",
+    "type": "git",
+    "url": "https://github.com/georgebrowncollege-toronto/SURVEY-MARKET-PLACE-DAPP-II-WINTER-2020.git"
+  },
+  "devDependencies": {
+    "bootstrap": "4.3.1",
+    "classnames": "2.2.6",
+    "embark": "^5.2.3",
+    "embark-graph": "^5.2.3",
+    "embark-profiler": "^5.2.3",
+    "embarkjs": "^5.2.3",
+    "embarkjs-whisper": "^5.2.3",
+    "jquery": "3.5.0",
+    "popper.js": "1.15.0",
+    "react": "16.12.0",
+    "react-dom": "16.12.0",
+    "reactstrap": "8.1.1"
+  },
+  "dependencies": {
+    "embark-solc": "^5.2.3",
+    "embark-solium": "^0.1.0"
+  }
+}
