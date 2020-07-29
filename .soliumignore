@@ -1,7 +1,0 @@
-node_modules
-.embark
-app
-config
-dist
-embarkArtifacts
-test
