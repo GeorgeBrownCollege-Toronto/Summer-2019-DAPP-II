@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+set -o nounset \
+    -o errexit \
+    -o verbose \
+    -o xtrace
+
+# Set environment value if they exist as arguments
+if [ $# -ne 0 ]; then
+    echo "=> Overriding env params with args ..."
+    for var in "$@"
+    do
+        export "$var"
+    done
+fi
+
+echo "== ENV Vaeiables ..."
+env | sort
+
+echo "== Running =="
+exec serve -s build

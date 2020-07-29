@@ -1,0 +1,9 @@
+chains.json
+config/livenet/password
+config/production/password
+coverage
+dist
+node_modules
+build
+.embark
+embarkArtifacts
