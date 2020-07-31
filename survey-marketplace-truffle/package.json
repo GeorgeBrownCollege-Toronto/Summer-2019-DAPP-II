@@ -1,0 +1,28 @@
+{
+  "name": "survey-marketplace-truffle",
+  "version": "1.0.0",
+  "description": "",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "solium -c ./.soliumrc.json -d ./contracts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@openzeppelin/contracts": "^3.1.0"
+  },
+  "devDependencies": {
+    "husky": "^4.2.5",
+    "solium": "^1.2.5"
+  },
+  "husky":{
+    "hooks":{
+      "pre-commit":"npm run lint"
+    }
+  }
+}
