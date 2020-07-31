@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "solium -c ./.soliumrc.json -d ./contracts"
+    "lint": "solhint ./contracts/*.sol"
   },
   "keywords": [],
   "author": "",
@@ -18,11 +18,11 @@
   },
   "devDependencies": {
     "husky": "^4.2.5",
-    "solium": "^1.2.5"
+    "solhint": "^3.1.0"
   },
-  "husky":{
-    "hooks":{
-      "pre-commit":"npm run lint"
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
     }
   }
 }

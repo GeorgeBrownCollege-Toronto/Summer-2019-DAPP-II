@@ -11,7 +11,7 @@ contract Survey {
 
     constructor(address _owner) payable public {
         require(_owner != address(0),"Survey: Invalid owner address");
-        require(msg.value > 0, "Survey: The reward amount should be greater than zero");
+        require(msg.value > 0, "Survey: amount greater than zero");
         owner = _owner;
         factory = msg.sender;
         emit SurveyInitialized(owner,msg.value);

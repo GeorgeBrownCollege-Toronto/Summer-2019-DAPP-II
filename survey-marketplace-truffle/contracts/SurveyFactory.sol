@@ -20,7 +20,7 @@ contract SurveyFactory is Ownable {
     }
 
     modifier notTheOwner(){
-        require(msg.sender != owner(),"SurveyFactory: The factory owner cannot create the survey");
+        require(msg.sender != owner(),"SurveyFactory: restricted");
         _;
     }
 
