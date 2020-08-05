@@ -2,11 +2,12 @@ const _ = require("lodash");
 const Survey = artifacts.require("Survey");
 const SurveyFactory = artifacts.require("SurveyFactory");
 const BigNumber = web3.utils.BN;
-const expectRevert = require("./expectRevert");
+
 const should = require("chai")
   .use(require("chai-as-promised"))
   .use(require("chai-bignumber")(BigNumber))
   .should(); //To enable should chai style
+
 class CommonVariables {
   constructor(_accounts) {
     this.accounts = _accounts;
@@ -25,6 +26,5 @@ module.exports = {
   Survey,
   SurveyFactory,
   BigNumber,
-  expectRevert,
   should,
 };

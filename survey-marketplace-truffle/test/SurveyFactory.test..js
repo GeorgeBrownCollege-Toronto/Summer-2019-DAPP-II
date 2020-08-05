@@ -3,10 +3,9 @@ const {
   Survey,
   SurveyFactory,
   BigNumber,
-  expectRevert,
   should,
 } = require("./helpers/commons");
-const { expect } = require("chai");
+const truffleAssert = require("truffle-assertions");
 
 contract("SurveyFactory", (_accounts) => {
   const commonVars = new CommonVariables(_accounts);
@@ -54,7 +53,20 @@ contract("SurveyFactory", (_accounts) => {
         })
         .should.eventually.equal(_surveyMaker);
     });
-    it("It should not allow if survey creation cost is not included", () => {});
-    it("It should not allow if app owner is trying to create survey", () => {});
+    it("It should not allow if survey creation cost is not included", async () => {
+      await truffleAssert.reverts(
+        surveyFactory.createSurvey.call({ from: _surveyMaker }),
+        "SurveyFactory: Not enough ethers"
+      );
+    });
+    it("It should not allow if app owner is trying to create survey", async () => {
+      await truffleAssert.reverts(
+        surveyFactory.createSurvey.call({
+          from: _appOwner,
+          value: _surveyRewardAndCreationCost,
+        }),
+        "SurveyFactory: restricted"
+      );
+    });
   });
 });
