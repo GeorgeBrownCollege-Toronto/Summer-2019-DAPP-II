@@ -1,0 +1,32 @@
+name: Survey Marketplace Install, Test and Build
+
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [10.17.0]
+
+    steps:
+      - name: Checkout Use Node.js ${{ matrix.node-version}}
+        uses: actions/checkout@v2
+
+      - name: Change directory
+        run: |
+          cd ./survey-marketplace-truffle
+
+      - name: Install
+        run: |
+          yarn
+      - name: Test
+        run: |
+          yarn test
