@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "truffle test",
     "lint": "solhint ./contracts/*.sol"
   },
   "keywords": [],
@@ -17,7 +17,11 @@
     "@openzeppelin/contracts": "^3.1.0"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "chai-bignumber": "^3.0.0",
     "husky": "^4.2.5",
+    "lodash": "^4.17.19",
     "solhint": "^3.1.0"
   },
   "husky": {
