@@ -27,8 +27,7 @@ contract SurveyFactory is Ownable {
     function createSurvey() external notTheOwner  payable returns(uint surveyId, address newSurveyAddress) {
         require(msg.value > surveyCreationFees,"SurveyFactory: Not enough ethers");
         uint surveyReward = msg.value.sub(surveyCreationFees);
-        // solium-disable-next-line
-        Survey  newSurvey= new Survey{value:surveyReward}(msg.sender);
+        Survey  newSurvey = new Survey{value:surveyReward}(msg.sender);
         newSurveyAddress = address(newSurvey);
         surveys.push(newSurveyAddress);
         surveyId = surveys.length;
