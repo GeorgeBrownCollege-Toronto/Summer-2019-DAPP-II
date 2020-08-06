@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "truffle-config.js",
-  "homepage":"http://georgebrowncollege-toronto.github.io/Dapp-II",
+  "homepage": "http://georgebrowncollege-toronto.github.io/Dapp-II",
   "directories": {
     "test": "test"
   },
