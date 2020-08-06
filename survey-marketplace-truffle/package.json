@@ -3,13 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "main": "truffle-config.js",
+  "homepage": "http://georgebrowncollege-toronto.github.io/Dapp-II",
   "directories": {
     "test": "test"
   },
   "scripts": {
     "test": "truffle test",
     "lint": "solhint ./contracts/*.sol",
-    "cov": "truffle run coverage"
+    "cov": "truffle run coverage",
+    "deploy": "gh-pages -d coverage"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +26,7 @@
     "chai-as-promised": "^7.1.1",
     "chai-bignumber": "^3.0.0",
     "dotenv": "^8.2.0",
+    "gh-pages": "^3.1.0",
     "husky": "^4.2.5",
     "lodash": "^4.17.19",
     "solhint": "^3.1.0",
