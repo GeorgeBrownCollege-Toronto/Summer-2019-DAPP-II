@@ -3993,10 +3993,81 @@
       "links": {},
       "address": "0xe649353B7c625B2ffe76717ef090E1c24707035b",
       "transactionHash": "0x5bb49017579775e1ef95f80cea7cb672a0dcabebbeb9004bb236909120d2dd29"
+    },
+    "1596852327821": {
+      "events": {
+        "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "previousOwner",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "newOwner",
+              "type": "address"
+            }
+          ],
+          "name": "OwnershipTransferred",
+          "type": "event"
+        },
+        "0x9158c4b8b7fff567a0a975ca3187331e08a50d8f2a1f04e986ac1e6e86e8212c": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "uint256",
+              "name": "surveyId",
+              "type": "uint256"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "newSurveyAddress",
+              "type": "address"
+            }
+          ],
+          "name": "SurveyCreated",
+          "type": "event"
+        },
+        "0xf184369f39717f266f1bf357eb0874181686f3e1fc282ae9605ba4bfd30635bb": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "uint256",
+              "name": "surveyCreationFees",
+              "type": "uint256"
+            }
+          ],
+          "name": "SurveyFactoryInitialized",
+          "type": "event"
+        },
+        "0x1ed3a4891bf5124447606a548b49bc1ec6baa5ad314872fa62c37d1cdea0e431": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "uint256",
+              "name": "surveyCreationFees",
+              "type": "uint256"
+            }
+          ],
+          "name": "SurveyFactoryinitialized",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0xCd171c523A29E3AD62Dc3fbC048aA0df1968A527",
+      "transactionHash": "0xf3532cc3c1ac91d8f60520b8c229599b031f0c2219e8c666a50a7851be797941"
     }
   },
   "schemaVersion": "3.2.0",
-  "updatedAt": "2020-08-08T01:38:04.170Z",
+  "updatedAt": "2020-08-08T02:06:02.134Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

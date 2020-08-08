@@ -9,6 +9,7 @@ export default ({ drizzle, drizzleState }) => {
   const [cs, setCS] = React.useState(null);
   const [currentAccount, setCurrentAccount] = React.useState(null);
   const [accountIndex, setAccountIndex] = React.useState(0);
+  const [allAccounts,setAllAccounts] = React.useState(Object.keys(drizzleState.accounts));
   const handleCreateSurvey = () => {
     const x = drizzle.contracts.SurveyFactory.methods.createSurvey().send({
       value: "2000000000000000000",
@@ -32,7 +33,7 @@ export default ({ drizzle, drizzleState }) => {
       setSurveys(surveyArr);
     }
     getAllSurveys();
-  }, [cs, surveyCount, surveys]);
+  }, [cs, surveyCount, surveys,allAccounts]);
 
   // destructure drizzle and drizzleState from props
   return (
@@ -43,7 +44,7 @@ export default ({ drizzle, drizzleState }) => {
 
       <div className="section">
         <h2>Active Account</h2>
-        {Object.keys(drizzleState.accounts).map((x, index) => (
+        {allAccounts.map((x, index) => (
           <p>
             <input
               type="radio"
