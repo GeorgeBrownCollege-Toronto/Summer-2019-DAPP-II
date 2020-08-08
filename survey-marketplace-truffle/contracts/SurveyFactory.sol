@@ -30,9 +30,13 @@ contract SurveyFactory is Ownable {
         Survey  newSurvey = new Survey{value:surveyReward}(msg.sender);
         newSurveyAddress = address(newSurvey);
         surveys.push(newSurveyAddress);
-        surveyId = surveys.length;
-        surveyToOwner[surveyId] = newSurveyAddress;
+        surveyId = surveys.length - 1;
+        surveyToOwner[surveyId] = msg.sender;
         emit SurveyCreated(surveyId, newSurveyAddress);
+    }
+
+    function getAllSurveys() public view returns(address[] memory){
+        return surveys;
     }
 
     event SurveyCreated(uint indexed surveyId, address indexed newSurveyAddress);
