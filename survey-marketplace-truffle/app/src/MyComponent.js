@@ -11,7 +11,7 @@ export default ({ drizzle, drizzleState }) => {
 
   const handleCreateSurvey = () => {
     const tx = drizzle.contracts.SurveyFactory.methods.createSurvey().send({
-      value: "2000000000000000000",
+      value: "4",
       from: currentAccount,
       gasLimit: 2100000,
     });
