@@ -12,7 +12,7 @@
     "lint": "solhint ./contracts/*.sol",
     "cov": "truffle run coverage",
     "deploy": "gh-pages -d coverage",
-    "ropsten-deploy": "truffle migrate --network ropsten"
+    "ropsten-deploy": "truffle migrate --reset --network ropsten"
   },
   "keywords": [],
   "author": "",
