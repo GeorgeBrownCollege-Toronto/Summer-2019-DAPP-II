@@ -34,4 +34,16 @@ jobs:
         if: github.ref == 'refs/heads/master'
         run: |
           cd ./survey-marketplace-truffle && yarn ropsten-deploy
+      - name: Build
+        run: |
+          cd ./survey-marketplace-truffle/app && yarn
+          yarn build
+      - name: GH Pages Deploy
+        uses: JamesIves/github-pages-deploy-action@3.5.9
+        with:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          BASE_BRANCH: master
+          BRANCH: gh-pages
+          FOLDER: survey-marketplace-truffle/app/build
+          CLEAN: true
           
