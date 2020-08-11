@@ -45,6 +45,7 @@ export default ({ drizzle, drizzleState }) => {
     }
     getAllSurveys();
   });
+
   // destructure drizzle and drizzleState from props
   return (
     <div className="App">
@@ -62,12 +63,13 @@ export default ({ drizzle, drizzleState }) => {
         >
           {Object.keys(drizzleState.accounts).map((x, index) => (
             <option key={x} value={drizzleState.accounts[index]}>
-              {drizzleState.accounts[index]} (
+              {drizzleState.accounts[index]}
+              {/* (
               {drizzle.web3.utils.fromWei(
                 drizzleState.accountBalances[drizzleState.accounts[index]],
                 "ether"
               )}{" "}
-              ether)
+              ether) */}
             </option>
           ))}
         </select>
@@ -83,7 +85,7 @@ export default ({ drizzle, drizzleState }) => {
               contract="SurveyFactory"
               method="surveyCreationFees"
             />{" "}
-            Ether
+            wei
           </div>
           <button onClick={handleCreateSurvey}>CreateSurvey</button>
         </div>

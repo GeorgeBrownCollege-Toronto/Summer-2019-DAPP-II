@@ -7,6 +7,10 @@ const options = {
     // customProvider: new Web3("ws://localhost:8545"),
     customProvider: new Web3(window.web3.currentProvider),
   },
+  // syncAlways:true,
+  polls: {
+    accounts: 2000,
+  },
   contracts: [SurveyFactory],
   events: {
     SurveyFactory: ["SurveyFactoryInitialized", "SurveyCreated"],
