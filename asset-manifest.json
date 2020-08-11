@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Dapp-II/static/css/main.93b6d721.chunk.css",
-    "main.js": "/Dapp-II/static/js/main.abc6b1f0.chunk.js",
-    "main.js.map": "/Dapp-II/static/js/main.abc6b1f0.chunk.js.map",
+    "main.js": "/Dapp-II/static/js/main.19d69350.chunk.js",
+    "main.js.map": "/Dapp-II/static/js/main.19d69350.chunk.js.map",
     "runtime-main.js": "/Dapp-II/static/js/runtime-main.6e136eed.js",
     "runtime-main.js.map": "/Dapp-II/static/js/runtime-main.6e136eed.js.map",
     "static/css/2.d34346ea.chunk.css": "/Dapp-II/static/css/2.d34346ea.chunk.css",
     "static/js/2.f058ff22.chunk.js": "/Dapp-II/static/js/2.f058ff22.chunk.js",
     "static/js/2.f058ff22.chunk.js.map": "/Dapp-II/static/js/2.f058ff22.chunk.js.map",
     "index.html": "/Dapp-II/index.html",
-    "precache-manifest.5ecf4fae09cd6ff8acd30d00e1e2a9fa.js": "/Dapp-II/precache-manifest.5ecf4fae09cd6ff8acd30d00e1e2a9fa.js",
+    "precache-manifest.4744bfa1cc42089bf9130e26b5483425.js": "/Dapp-II/precache-manifest.4744bfa1cc42089bf9130e26b5483425.js",
     "service-worker.js": "/Dapp-II/service-worker.js",
     "static/css/2.d34346ea.chunk.css.map": "/Dapp-II/static/css/2.d34346ea.chunk.css.map",
     "static/css/main.93b6d721.chunk.css.map": "/Dapp-II/static/css/main.93b6d721.chunk.css.map",
@@ -20,6 +20,6 @@
     "static/css/2.d34346ea.chunk.css",
     "static/js/2.f058ff22.chunk.js",
     "static/css/main.93b6d721.chunk.css",
-    "static/js/main.abc6b1f0.chunk.js"
+    "static/js/main.19d69350.chunk.js"
   ]
 }
