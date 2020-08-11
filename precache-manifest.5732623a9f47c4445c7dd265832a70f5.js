@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8811437b5fa75912c6251be1d91a1ff6",
+    "revision": "b227d3728c7cda096f6fbb48acd6b59c",
     "url": "/Dapp-II/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Dapp-II/static/css/2.d34346ea.chunk.css"
   },
   {
-    "revision": "7af8178929d16b50a9b7",
+    "revision": "3e8c1c9807e0cf97fdb5",
     "url": "/Dapp-II/static/css/main.93b6d721.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Dapp-II/static/js/2.f058ff22.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "7af8178929d16b50a9b7",
-    "url": "/Dapp-II/static/js/main.b7fb69d1.chunk.js"
+    "revision": "3e8c1c9807e0cf97fdb5",
+    "url": "/Dapp-II/static/js/main.3fb5333b.chunk.js"
   },
   {
     "revision": "d98f26a203a26d07ba1e",
