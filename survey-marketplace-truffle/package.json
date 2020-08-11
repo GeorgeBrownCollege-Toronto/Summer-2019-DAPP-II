@@ -11,7 +11,8 @@
     "test": "truffle test",
     "lint": "solhint ./contracts/*.sol",
     "cov": "truffle run coverage",
-    "deploy": "gh-pages -d coverage"
+    "deploy": "gh-pages -d coverage",
+    "ropsten-deploy": "truffle migrate --network ropsten"
   },
   "keywords": [],
   "author": "",
