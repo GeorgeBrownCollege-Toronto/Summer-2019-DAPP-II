@@ -30,7 +30,6 @@ jobs:
       - name: Test
         run: |
           cd ./survey-marketplace-truffle && yarn test
-
       - name: Ropsten deploy 
         if: github.ref == 'refs/heads/master'
         run: |
