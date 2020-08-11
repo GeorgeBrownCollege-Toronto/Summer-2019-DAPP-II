@@ -1,26 +1,29 @@
 import React from "react";
 import { newContextComponents } from "@drizzle/react-components";
-
-const { AccountData, ContractData, ContractForm } = newContextComponents;
+const { ContractData } = newContextComponents;
 
 export default ({ drizzle, drizzleState }) => {
   const [surveyCount, setSurveyCount] = React.useState(0);
   const [surveys, setSurveys] = React.useState([]);
-  const [cs, setCS] = React.useState(null);
-  const [currentAccount, setCurrentAccount] = React.useState(null);
-  const [accountIndex, setAccountIndex] = React.useState(0);
-  const [allAccounts,setAllAccounts] = React.useState(Object.keys(drizzleState.accounts));
+  const [currentAccount, setCurrentAccount] = React.useState(
+    drizzleState.accounts[0]
+  );
+  const [allAccounts, setAllAccounts] = React.useState(
+    Object.keys(drizzleState.accounts)
+  );
+
   const handleCreateSurvey = () => {
     const x = drizzle.contracts.SurveyFactory.methods.createSurvey().send({
       value: "2000000000000000000",
       from: currentAccount,
       gasLimit: 2100000,
     });
-    setCS(x);
+    x.then(({ events }) => {
+      setSurveyCount(events.SurveyCreated.returnValues["0"]);
+    });
   };
 
-  const handleOnChange = (index) => (event) => {
-    setAccountIndex(index);
+  const handleOnChange = (event) => {
     setCurrentAccount(event.target.value);
   };
 
@@ -29,12 +32,10 @@ export default ({ drizzle, drizzleState }) => {
       const surveyArr = await drizzle.contracts.SurveyFactory.methods
         .getAllSurveys()
         .call();
-      setSurveyCount(surveyArr.length);
       setSurveys(surveyArr);
     }
     getAllSurveys();
-  }, [cs, surveyCount, surveys,allAccounts]);
-
+  }, [surveyCount]);
   // destructure drizzle and drizzleState from props
   return (
     <div className="App">
@@ -43,64 +44,67 @@ export default ({ drizzle, drizzleState }) => {
       </div>
 
       <div className="section">
-        <h2>Active Account</h2>
-        {allAccounts.map((x, index) => (
-          <p>
-            <input
-              type="radio"
-              value={drizzleState.accounts[index]}
-              checked={accountIndex == index}
-              onChange={handleOnChange(index)}
-            />
-            <AccountData
-              drizzle={drizzle}
-              drizzleState={drizzleState}
-              accountIndex={index}
-              units="ether"
-              precision={3}
-            />
-          </p>
-        ))}
+        <label htmlFor="account-select">Choose an account:</label>
+        <select
+          name="accounts"
+          id="account-select"
+          value={currentAccount}
+          onChange={handleOnChange}
+        >
+          {allAccounts.map((x, index) => (
+            <option key={x} value={drizzleState.accounts[index]}>
+              {drizzleState.accounts[index]} (
+              {drizzle.web3.utils.fromWei(
+                drizzleState.accountBalances[drizzleState.accounts[index]],
+                "ether"
+              )}{" "}
+              ether)
+            </option>
+          ))}
+        </select>
       </div>
 
-      <div className="section">
-        <h2>Survey marketplace</h2>
-        <p>
-          <strong>Survey creation fees : </strong>
-          <ContractData
-            drizzle={drizzle}
-            drizzleState={drizzleState}
-            contract="SurveyFactory"
-            method="surveyCreationFees"
-          />{" "}
-          Ether
-        </p>
-
-        <p>
+      <div className="container">
+        <div>
+          <div>Survey creation fees : </div>
+          <div>
+            <ContractData
+              drizzle={drizzle}
+              drizzleState={drizzleState}
+              contract="SurveyFactory"
+              method="surveyCreationFees"
+            />{" "}
+            Ether
+          </div>
+          <button onClick={handleCreateSurvey}>CreateSurvey</button>
+        </div>
+        <div>
           <strong>Survey listings to owner </strong>
           <table>
-            <tr>
-              <th>Owner</th>
-              <th>Survey Address</th>
-            </tr>
-            {surveys.map((surveyAddr, index) => (
+            <thead>
               <tr>
-                <td>
-                  <ContractData
-                    drizzle={drizzle}
-                    drizzleState={drizzleState}
-                    contract="SurveyFactory"
-                    method="surveyToOwner"
-                    methodArgs={[`${index}`]}
-                  />
-                </td>
-                <td>{surveyAddr}</td>
+                <th>Owner</th>
+                <th>Survey Address</th>
               </tr>
-            ))}
+            </thead>
+            <tbody>
+              {surveys.map((surveyAddr, index) => (
+                <tr key={surveyAddr}>
+                  <td>
+                    <ContractData
+                      drizzle={drizzle}
+                      drizzleState={drizzleState}
+                      contract="SurveyFactory"
+                      method="surveyToOwner"
+                      methodArgs={[`${index}`]}
+                    />
+                  </td>
+                  <td>{surveyAddr}</td>
+                </tr>
+              ))}
+            </tbody>
           </table>
-        </p>
-
-        <button onClick={handleCreateSurvey}>CreateSurvey</button>
+        </div>
       </div>
     </div>
   );

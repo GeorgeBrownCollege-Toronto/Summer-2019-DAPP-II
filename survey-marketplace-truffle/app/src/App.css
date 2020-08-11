@@ -3,8 +3,42 @@
   margin: 2rem;
 }
 
-.section {
+/* .section {
   text-align: left;
   max-width: 720px;
   margin: 4rem auto auto;
+} */
+
+table,
+td {
+  border: 1px solid #333;
+}
+
+thead,
+tfoot {
+  background-color: #333;
+  color: #fff;
+}
+
+tbody {
+  display: block;
+  height: 300px;
+  overflow: auto;
+}
+
+thead, tbody tr {
+  display:table;
+  width:100%;
+  table-layout:fixed;/* even columns width , fix width of table too*/
+}
+/* thead { */
+  /* width: calc( 100% - 1em )scrollbar is average 1em/16px width, remove it from thead width */
+/* } */
+table {
+  width:900px;
+}
+.container {
+  margin: 100px;
+  display: flex; /* or inline-flex */
+  justify-content: space-between;
 }

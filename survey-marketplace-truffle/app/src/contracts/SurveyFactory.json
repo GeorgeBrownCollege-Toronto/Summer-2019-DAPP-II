@@ -3781,6 +3781,77 @@
     "version": "0.6.12+commit.27d51765.Emscripten.clang"
   },
   "networks": {
+    "5777": {
+      "events": {
+        "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "previousOwner",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "newOwner",
+              "type": "address"
+            }
+          ],
+          "name": "OwnershipTransferred",
+          "type": "event"
+        },
+        "0x9158c4b8b7fff567a0a975ca3187331e08a50d8f2a1f04e986ac1e6e86e8212c": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "uint256",
+              "name": "surveyId",
+              "type": "uint256"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "newSurveyAddress",
+              "type": "address"
+            }
+          ],
+          "name": "SurveyCreated",
+          "type": "event"
+        },
+        "0xf184369f39717f266f1bf357eb0874181686f3e1fc282ae9605ba4bfd30635bb": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "uint256",
+              "name": "surveyCreationFees",
+              "type": "uint256"
+            }
+          ],
+          "name": "SurveyFactoryInitialized",
+          "type": "event"
+        },
+        "0x1ed3a4891bf5124447606a548b49bc1ec6baa5ad314872fa62c37d1cdea0e431": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "uint256",
+              "name": "surveyCreationFees",
+              "type": "uint256"
+            }
+          ],
+          "name": "SurveyFactoryinitialized",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x3FFBd96E742d02269Cc55931e1bbd0aEFd4D024F",
+      "transactionHash": "0x80eed9de636b74fa850fcd360032c278babde6e040cb9cec9d9ed8f81d56ca62"
+    },
     "1596838975652": {
       "events": {
         "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0": {
@@ -4064,10 +4135,223 @@
       "links": {},
       "address": "0xCd171c523A29E3AD62Dc3fbC048aA0df1968A527",
       "transactionHash": "0xf3532cc3c1ac91d8f60520b8c229599b031f0c2219e8c666a50a7851be797941"
+    },
+    "1597107137043": {
+      "events": {
+        "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "previousOwner",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "newOwner",
+              "type": "address"
+            }
+          ],
+          "name": "OwnershipTransferred",
+          "type": "event"
+        },
+        "0x9158c4b8b7fff567a0a975ca3187331e08a50d8f2a1f04e986ac1e6e86e8212c": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "uint256",
+              "name": "surveyId",
+              "type": "uint256"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "newSurveyAddress",
+              "type": "address"
+            }
+          ],
+          "name": "SurveyCreated",
+          "type": "event"
+        },
+        "0xf184369f39717f266f1bf357eb0874181686f3e1fc282ae9605ba4bfd30635bb": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "uint256",
+              "name": "surveyCreationFees",
+              "type": "uint256"
+            }
+          ],
+          "name": "SurveyFactoryInitialized",
+          "type": "event"
+        },
+        "0x1ed3a4891bf5124447606a548b49bc1ec6baa5ad314872fa62c37d1cdea0e431": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "uint256",
+              "name": "surveyCreationFees",
+              "type": "uint256"
+            }
+          ],
+          "name": "SurveyFactoryinitialized",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0xc91A07D330fCAf0D27A245b7eFD01fF116BCaFEb",
+      "transactionHash": "0x2dfa7f9a691aa6a0356abc6ff5ef7e2ed69313add62d0d8c023d5526d29fae94"
+    },
+    "1597108283181": {
+      "events": {
+        "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "previousOwner",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "newOwner",
+              "type": "address"
+            }
+          ],
+          "name": "OwnershipTransferred",
+          "type": "event"
+        },
+        "0x9158c4b8b7fff567a0a975ca3187331e08a50d8f2a1f04e986ac1e6e86e8212c": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "uint256",
+              "name": "surveyId",
+              "type": "uint256"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "newSurveyAddress",
+              "type": "address"
+            }
+          ],
+          "name": "SurveyCreated",
+          "type": "event"
+        },
+        "0xf184369f39717f266f1bf357eb0874181686f3e1fc282ae9605ba4bfd30635bb": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "uint256",
+              "name": "surveyCreationFees",
+              "type": "uint256"
+            }
+          ],
+          "name": "SurveyFactoryInitialized",
+          "type": "event"
+        },
+        "0x1ed3a4891bf5124447606a548b49bc1ec6baa5ad314872fa62c37d1cdea0e431": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "uint256",
+              "name": "surveyCreationFees",
+              "type": "uint256"
+            }
+          ],
+          "name": "SurveyFactoryinitialized",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x89Fea945b7EDF3c206b85ACF20737F9D03D57941",
+      "transactionHash": "0x200266fab9a183bb18a06536f87dd406c4ad0e13f860a825ffbac4c51be7a0a8"
+    },
+    "1597110841239": {
+      "events": {
+        "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "previousOwner",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "newOwner",
+              "type": "address"
+            }
+          ],
+          "name": "OwnershipTransferred",
+          "type": "event"
+        },
+        "0x9158c4b8b7fff567a0a975ca3187331e08a50d8f2a1f04e986ac1e6e86e8212c": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "uint256",
+              "name": "surveyId",
+              "type": "uint256"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "newSurveyAddress",
+              "type": "address"
+            }
+          ],
+          "name": "SurveyCreated",
+          "type": "event"
+        },
+        "0xf184369f39717f266f1bf357eb0874181686f3e1fc282ae9605ba4bfd30635bb": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "uint256",
+              "name": "surveyCreationFees",
+              "type": "uint256"
+            }
+          ],
+          "name": "SurveyFactoryInitialized",
+          "type": "event"
+        },
+        "0x1ed3a4891bf5124447606a548b49bc1ec6baa5ad314872fa62c37d1cdea0e431": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "uint256",
+              "name": "surveyCreationFees",
+              "type": "uint256"
+            }
+          ],
+          "name": "SurveyFactoryinitialized",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x63A389eF72d32C21bF368006F34F67AB7f57E0b4",
+      "transactionHash": "0x77c033b95ada2a782d751cd94505d35a2ef3523420aaaaf464d5c1056dd7c0b3"
     }
   },
   "schemaVersion": "3.2.0",
-  "updatedAt": "2020-08-08T02:06:02.134Z",
+  "updatedAt": "2020-08-11T01:54:10.756Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
