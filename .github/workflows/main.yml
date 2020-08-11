@@ -19,6 +19,7 @@ jobs:
     env:
       MNEMONICS: ${{ secrets.MNEMONICS}}
       INFURA_KEY: ${{ secrets.INFURA_KEY}}
+      SKIP_PREFLIGHT_CHECK: true
 
     steps:
       - name: Checkout Use Node.js ${{ matrix.node-version}}
