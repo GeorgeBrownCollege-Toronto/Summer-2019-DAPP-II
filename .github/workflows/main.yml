@@ -28,6 +28,9 @@ jobs:
       - name: Install
         run: |
           cd ./survey-marketplace-truffle && yarn
+      - name: Lint
+        run: |
+          cd ./survey-marketplace-truffle && yarn lint
       - name: Test
         run: |
           cd ./survey-marketplace-truffle && yarn test
@@ -40,6 +43,7 @@ jobs:
           cd ./survey-marketplace-truffle/app && yarn
           yarn build
       - name: GH Pages Deploy
+        if: github.ref == 'refs/heads/master'
         uses: JamesIves/github-pages-deploy-action@3.5.9
         with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
