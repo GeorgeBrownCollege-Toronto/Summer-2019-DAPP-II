@@ -1,8 +1,10 @@
 import React from 'react';
 import { DrizzleContext } from "@drizzle/react-plugin";
 import { Drizzle } from "@drizzle/store";
+import { ToastContainer } from 'react-toastify';
 import drizzleOptions from "./drizzleOptions";
 import MyComponent from "./MyComponent";
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 
 const drizzle = new Drizzle(drizzleOptions);
@@ -23,6 +25,7 @@ const App = () => {
           )
         }}
       </DrizzleContext.Consumer>
+      <ToastContainer />
     </DrizzleContext.Provider>
   );
 }

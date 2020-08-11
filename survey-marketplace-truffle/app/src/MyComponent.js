@@ -1,9 +1,9 @@
 import React from "react";
 import { newContextComponents } from "@drizzle/react-components";
+import { toast } from "react-toastify";
 const { ContractData } = newContextComponents;
 
 export default ({ drizzle, drizzleState }) => {
-  const [surveyCount, setSurveyCount] = React.useState(0);
   const [surveys, setSurveys] = React.useState([]);
   const [currentAccount, setCurrentAccount] = React.useState(
     drizzleState.accounts[0]
@@ -13,13 +13,23 @@ export default ({ drizzle, drizzleState }) => {
   );
 
   const handleCreateSurvey = () => {
-    const x = drizzle.contracts.SurveyFactory.methods.createSurvey().send({
+    const tx = drizzle.contracts.SurveyFactory.methods.createSurvey().send({
       value: "2000000000000000000",
       from: currentAccount,
       gasLimit: 2100000,
     });
-    x.then(({ events }) => {
-      setSurveyCount(events.SurveyCreated.returnValues["0"]);
+    tx.then(({ events }) => {
+      surveys.unshift(events.SurveyCreated.returnValues["newSurveyAddress"]);
+    }).catch((error) => {
+      toast.error(error.message, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     });
   };
 
@@ -27,15 +37,22 @@ export default ({ drizzle, drizzleState }) => {
     setCurrentAccount(event.target.value);
   };
 
-  React.useEffect(() => {
-    async function getAllSurveys() {
-      const surveyArr = await drizzle.contracts.SurveyFactory.methods
-        .getAllSurveys()
-        .call();
-      setSurveys(surveyArr);
-    }
-    getAllSurveys();
-  }, [surveyCount]);
+  React.useEffect(
+    () => {
+      async function getAllSurveys() {
+        const surveyArr = await drizzle.contracts.SurveyFactory.methods
+          .getAllSurveys()
+          .call();
+        // Because the array is frozen in strict mode, you'll need to copy the array before sorting it:
+        // https://stackoverflow.com/a/53420326
+        setSurveys(surveyArr.slice().reverse());
+      }
+      getAllSurveys();
+    },
+    [
+      /*surveyCount*/
+    ]
+  );
   // destructure drizzle and drizzleState from props
   return (
     <div className="App">
