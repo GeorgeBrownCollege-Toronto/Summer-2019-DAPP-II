@@ -8,9 +8,6 @@ export default ({ drizzle, drizzleState }) => {
   const [currentAccount, setCurrentAccount] = React.useState(
     drizzleState.accounts[0]
   );
-  const [allAccounts, setAllAccounts] = React.useState(
-    Object.keys(drizzleState.accounts)
-  );
 
   const handleCreateSurvey = () => {
     const tx = drizzle.contracts.SurveyFactory.methods.createSurvey().send({
@@ -37,22 +34,17 @@ export default ({ drizzle, drizzleState }) => {
     setCurrentAccount(event.target.value);
   };
 
-  React.useEffect(
-    () => {
-      async function getAllSurveys() {
-        const surveyArr = await drizzle.contracts.SurveyFactory.methods
-          .getAllSurveys()
-          .call();
-        // Because the array is frozen in strict mode, you'll need to copy the array before sorting it:
-        // https://stackoverflow.com/a/53420326
-        setSurveys(surveyArr.slice().reverse());
-      }
-      getAllSurveys();
-    },
-    [
-      /*surveyCount*/
-    ]
-  );
+  React.useEffect(() => {
+    async function getAllSurveys() {
+      const surveyArr = await drizzle.contracts.SurveyFactory.methods
+        .getAllSurveys()
+        .call();
+      // Because the array is frozen in strict mode, you'll need to copy the array before sorting it:
+      // https://stackoverflow.com/a/53420326
+      setSurveys(surveyArr.slice().reverse());
+    }
+    getAllSurveys();
+  });
   // destructure drizzle and drizzleState from props
   return (
     <div className="App">
@@ -68,7 +60,7 @@ export default ({ drizzle, drizzleState }) => {
           value={currentAccount}
           onChange={handleOnChange}
         >
-          {allAccounts.map((x, index) => (
+          {Object.keys(drizzleState.accounts).map((x, index) => (
             <option key={x} value={drizzleState.accounts[index]}>
               {drizzleState.accounts[index]} (
               {drizzle.web3.utils.fromWei(
