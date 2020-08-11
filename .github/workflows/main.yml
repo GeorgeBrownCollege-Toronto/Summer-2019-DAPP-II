@@ -10,11 +10,15 @@ on:
 
 
 jobs:
-  test:
+  test/|build|deploy:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [10.17.0]
+    
+    env:
+      MNEMONICS: ${{ secrets.MNEMONICS}}
+      INFURA_KEY: ${{ secrets.INFURA_KEY}}
 
     steps:
       - name: Checkout Use Node.js ${{ matrix.node-version}}
@@ -26,26 +30,9 @@ jobs:
       - name: Test
         run: |
           cd ./survey-marketplace-truffle && yarn test
-  
-  deploy:
-    runs-on: ubuntu-latest
-    needs: test
-    strategy:
-      matrix:
-          node-version: [10.17.0]
-    
-    env:
-      MNEMONIC: ${{ secrets.MNEMONICS}}
-      INFURA_ID: ${{ secrets.INFURA_KEY}}
-    
-    if: github.ref == 'refs/heads/master'
-    steps:
-      - name: Checkout use Node.js ${{ matrix.node-version}}
-        uses: actions/checkout@v2
-        with:
-          persist-credential: false
-      
-      - name: Ropsten Deploy
+
+      - name: Ropsten deploy 
+        if: github.ref == 'refs/heads/master'
         run: |
-          cd ./survey-marketplace-truffle && yarn
-          yarn ropsten-deploy
+          cd ./survey-marketplace-truffle && yarn ropsten-deploy
+          
