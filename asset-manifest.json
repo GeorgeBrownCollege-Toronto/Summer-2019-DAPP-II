@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/static/css/main.93b6d721.chunk.css",
-    "main.js": "/static/js/main.0bb7ec39.chunk.js",
-    "main.js.map": "/static/js/main.0bb7ec39.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.92ee656d.js",
-    "runtime-main.js.map": "/static/js/runtime-main.92ee656d.js.map",
-    "static/css/2.d34346ea.chunk.css": "/static/css/2.d34346ea.chunk.css",
-    "static/js/2.bfed6ffc.chunk.js": "/static/js/2.bfed6ffc.chunk.js",
-    "static/js/2.bfed6ffc.chunk.js.map": "/static/js/2.bfed6ffc.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.bb930ac63fcb676d7b2402d3f2bfeb27.js": "/precache-manifest.bb930ac63fcb676d7b2402d3f2bfeb27.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/2.d34346ea.chunk.css.map": "/static/css/2.d34346ea.chunk.css.map",
-    "static/css/main.93b6d721.chunk.css.map": "/static/css/main.93b6d721.chunk.css.map",
-    "static/js/2.bfed6ffc.chunk.js.LICENSE.txt": "/static/js/2.bfed6ffc.chunk.js.LICENSE.txt"
+    "main.css": "/Dapp-II/static/css/main.93b6d721.chunk.css",
+    "main.js": "/Dapp-II/static/js/main.b7fb69d1.chunk.js",
+    "main.js.map": "/Dapp-II/static/js/main.b7fb69d1.chunk.js.map",
+    "runtime-main.js": "/Dapp-II/static/js/runtime-main.6e136eed.js",
+    "runtime-main.js.map": "/Dapp-II/static/js/runtime-main.6e136eed.js.map",
+    "static/css/2.d34346ea.chunk.css": "/Dapp-II/static/css/2.d34346ea.chunk.css",
+    "static/js/2.f058ff22.chunk.js": "/Dapp-II/static/js/2.f058ff22.chunk.js",
+    "static/js/2.f058ff22.chunk.js.map": "/Dapp-II/static/js/2.f058ff22.chunk.js.map",
+    "index.html": "/Dapp-II/index.html",
+    "precache-manifest.a898a0cdb55b20b4026d5ce685a7e4bb.js": "/Dapp-II/precache-manifest.a898a0cdb55b20b4026d5ce685a7e4bb.js",
+    "service-worker.js": "/Dapp-II/service-worker.js",
+    "static/css/2.d34346ea.chunk.css.map": "/Dapp-II/static/css/2.d34346ea.chunk.css.map",
+    "static/css/main.93b6d721.chunk.css.map": "/Dapp-II/static/css/main.93b6d721.chunk.css.map",
+    "static/js/2.f058ff22.chunk.js.LICENSE.txt": "/Dapp-II/static/js/2.f058ff22.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.92ee656d.js",
+    "static/js/runtime-main.6e136eed.js",
     "static/css/2.d34346ea.chunk.css",
-    "static/js/2.bfed6ffc.chunk.js",
+    "static/js/2.f058ff22.chunk.js",
     "static/css/main.93b6d721.chunk.css",
-    "static/js/main.0bb7ec39.chunk.js"
+    "static/js/main.b7fb69d1.chunk.js"
   ]
 }
