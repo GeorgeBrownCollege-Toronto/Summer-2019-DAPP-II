@@ -1,0 +1,18 @@
+version: "3"
+services:
+  ganache:
+    build:
+      context: .
+      dockerfile: Dockerfile.ganache
+    env_file:
+      - .env
+    ports:
+      - "8545:8545"
+
+  dapp:
+    stdin_open: true
+    build: ./app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - ganache

@@ -1,0 +1,16 @@
+FROM mhart/alpine-node:10 as builder
+
+RUN apk add --no-cache make gcc g++ python git bash
+
+# set the working directory to /app
+WORKDIR /app
+
+# install ganache-cli globally
+RUN npm install -g ganache-cli
+
+# copy chaindb
+COPY chaindb /app/chaindb
+
+# set the command ganache-cli -h 0.0.0.0 
+# for docker ganache-cli host on 0.0.0.0
+CMD ["sh","-c","ganache-cli -h 0.0.0.0 --mnemonic $MNEMONICS --db /app/chaindb -i 5777"]
