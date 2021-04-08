@@ -1,6 +1,6 @@
 # DAPP II
 
-[Course Website](https://github.com/GeorgeBrownCollege-Toronto/Dapp-II.git)
+[Course Website](https://github.com/GeorgeBrownCollege-Toronto/Dapp-II/)
 
 To view all slides locally
 

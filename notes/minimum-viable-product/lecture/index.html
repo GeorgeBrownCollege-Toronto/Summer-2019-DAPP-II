@@ -1,0 +1,338 @@
+<!doctype html>
+<html>
+    <head>
+		<meta charset="utf-8">
+
+		<title>MVP DApp</title>
+
+		<meta name="description" content="A lesson on an MVP DApp">
+		<meta name="author" content="Dhruvin Parikh">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="../../../reveal.js/dist/reset.css">
+		<link rel="stylesheet" href="../../../reveal.js/dist/reveal.css">
+		<link rel="stylesheet" href="../../../reveal.js/dist/theme/white.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+        <link rel="stylesheet" href="../../../reveal.js/plugin/highlight/monokai.css" id="highlight-theme">
+        <style>
+            .reveal .slides h1, .reveal .slides h2, .reveal .slides h3 {
+        text-transform: none;
+      }
+
+      .two-column {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .two-column em {
+        margin: 20px;
+      }
+
+      .reveal .big-and-bold {
+        font-weight: bold;
+        font-size: 135%;
+      }
+
+      .reveal .shrunk-a-bit {
+        font-size: 90%;
+      }
+
+      .reveal .shrunk-a-bit pre {
+        width: 100%;
+      }
+
+      .reveal pre {
+        width: 100%;
+      }
+
+      .reveal .highlight {
+        color: yellow;
+        font-weight: bold;
+      }
+
+      .reveal .highlightRed {
+        color: red;
+        font-weight: bold;
+      }
+
+      .reveal .highlightGreen {
+        color: green;
+        font-weight: bold;
+      }
+
+      .left {
+        left:-8.33%;
+        text-align: left;
+        float: left;
+        width:50%;
+        z-index:-10;
+      }
+
+      .right {
+        left:31.25%;
+        top: 75px;
+        text-align: left;
+        float: right;
+        z-index:-10;
+        width:50%;
+      }
+
+      table {
+        font-size: 80%;
+      }
+          </style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-markdown>
+					<textarea data-template>
+						### BCDV 1014 - DAPP II 
+						#### MVP DApp (Idea to final product)
+						<div class="author">Dhruvin Parikh, April 2021</div>
+					</textarea>
+				</section>
+		
+                <section data-markdown><textarea data-template>
+                ### Introduction
+                * Take the idea from origin and orchestrate the work needed to *make it work*.
+                * As a project, making a decentralized application on Ethereum is not really different from making a classic, centralized one, beside the fact that more care should be put into planning and implementing the smart contracts that power the DApp.
+                * So the first thing we need to come up with, is, of course the *idea*.
+                </textarea></section>
+
+                <section data-markdown><textarea data-template>
+                ### Idea (1/2)
+                * What will we create?
+                * Everyone has different ways to come up with an idea:
+                    * Patreon, Netflix, Reddit, Slack, Stack Exchange
+                    * E-commerce portal, trading platform
+                    * Incentivized survey system?
+                </textarea></section>
+
+
+                <section data-markdown><textarea data-template>
+                ### Idea (2/2)
+                * There can be an e-commerce selling the images may be for 1/10000th of an ether per pixel
+                * DApp should have the capability to count the size and dpi of the canvas
+                * A marketplace for conducting survey that will randomly decide the winner after the survey is finished.
+
+                *Let us consider building marketplace for survey creators.*
+                </textarea></section>
+
+
+                <section data-markdown><textarea data-template>
+                ### Development process(1/3)
+                * Writing down the milestones that needs to be achieved is enough to get started
+                * Anything more elaborated would require more documentation and throughout designing and modeling
+                * The idea in this DApp is to create a platform for survey creator who can create a survey and allow participant to participate.
+                * Architect the application stages properly to avoid code smells in long run
+                </textarea></section>
+
+                <section data-markdown><textarea data-template>
+                ### Development process(2/3)
+                * If you are working in team, the modules of the DAPP has to be loosely coupled in order to fasten the development
+                * The smart-contract serves as our business logic, the main point of truth 
+                </textarea></section>
+
+                <section data-markdown><textarea data-template>
+                ### Development process(3/3)
+                * Validations will exist on both the backend and the frontend, we still want to ensure our data is not corrupted, especially that anyone with the smart-contract address can call its functionality straight away, and that’s why the security of the smart-contract is a keystone to a successful DApp.                
+                </textarea></section>
+
+
+                <section data-markdown><textarea data-template>
+                ### DApp development aspects
+                * Smart Contract
+                    * Idea to business plan
+                    * Setting up development process using truffle, hardhat etc.
+                    * TDD of the smart contract
+                    * Testing solidity code on ganache-cli, hardhat node,local ethereum chain and testnet
+                * Backend
+                    * Server side ethereum development
+                * Frontend
+                    * Client side user interface and wallet integration
+                </textarea></section>
+
+
+                <section data-markdown><textarea data-template>
+                ### DApp development (MVP way)
+                * In order to not waste development time making the perfect product, and check our assumptions early on, make just the most important functionality first.
+                * There are people who just set up a text-only landing page to see how many users it attracts.
+                </textarea></section>
+
+
+                <section data-markdown><textarea data-template>
+                ### The smart contracts (1/3)
+                * Having core features in mind, design smart contract(s) in a way that could enhance or upgrade them in a practical way. There isn’t an industry standard or a best way to achieve that but a bit of research will return a few potential solutions implemented by other projects.
+                * Pick up one and adapt it to our needs, or come up with a solution more suitable to the idea.
+                </textarea></section>
+
+                <section data-markdown><textarea data-template>
+                ### The smart contracts (2/3)
+                * Goal of the project is to show off what differentiate developing on the blockchain from a classic centralized application for anyone who’s new to the blockchain and discovers it through this project.
+                * It’s the wise choice to have a safety plan if it does hit the targeted audience.
+                * Writing a good test suite is also important, as we don’t want to risk to follow the *write-code-then-wait-for-bugs-during-production* methodology with smart contracts.                
+                </textarea></section>
+
+
+                <section data-markdown><textarea data-template>
+                ### The smart contracts (3/3)
+                * To deploy the smart contract, we need ether for gas, to acquire ether, you could buy it on a platform exchanges like Coinbase, coinsquare.
+                * You can buy ether by trading in fiat or tokens.
+                * After you got your ether, the easiest solution to deploy a smart contract is to use Remix and MetaMask.
+                </textarea></section>
+
+
+                <section data-markdown><textarea data-template>
+                ### Web front (1/2)
+                * The functionalities : 
+                    * create new survey contract by accepting ether via metamask 
+                    * Display the address of the survey contract. 
+                    * Participant can take the survey, get survey information and provide the account address. 
+                    * Survey creator can end the survey and announce the winner. 
+                    * DApp can notify the winner and winner can claim the reward.
+                </textarea></section>
+
+                <section data-markdown><textarea data-template>
+                ### Web front (2/2)
+                * Other functionalities exists on the smart contract, and could be added anytime to the front-end
+                * Validate assumptions first, and make sure that there are people who want to use our product.
+                * Deploying front end can be done on platforms like netlify, github-pages, ipfs etc                
+                </textarea></section>
+
+
+                <section data-markdown><textarea data-template>
+                ### Modelling Idea(Marketplace for survey creators)
+                * Unified Modelling Language
+                    * Structural diagram
+                        * Use case diagram
+                    * Behavioral diagram
+                        * Sequence diagram
+                        * State Machine diagram
+                        * Class Diagram
+                </textarea></section>
+
+
+                <section data-markdown><textarea data-template>
+                ### User journey
+                * Sequence diagram is the best way to demonstrate user journey.
+                * Actors for the DApp (use case diagram)
+                    * Survey owner
+                    * Survey participant
+                    * Survey DApp (Interface between survey owner and survey participant)
+                </textarea></section>
+
+
+
+                <section data-markdown><textarea data-template>
+                ### Survey creator's perspective
+                * The user Goes to the DApp
+                * The user Enters the reward and on clicks on Create Survey Link
+                * The user is Prompted from Metamask to confirm Transaction (Creates smart-contract instance)
+                * The user is filling the survey link and add integration to survey monkey (stretch-goal)
+                * After the survey is done, the Survey creator can close — announce it is finished — and receive the winner’s details.                
+                </textarea></section>
+
+
+                <section data-markdown><textarea data-template>
+                ### Survey participant's perspective (1/2)
+                * The user navigates to the Survey DApp.
+                * The user clicks on to take the survey link.
+                * The user fills in the survey.
+                * The user clicks on Finish survey.
+                </textarea></section>
+
+
+                <section data-markdown><textarea data-template>
+                ### Survey participant's perspective (2/2)
+                * A popup comes that prompt the user to enter his ETH account address to claim his/her reward later.
+                * The user puts his address.
+                * A few seconds later the user gets a number to save.
+                * If the participant is the lucky winner, then the participant gets notified, which he/she can withdraw their money into their wallet.                
+                </textarea></section>
+
+                <section>
+                <h3>Lab : Sequence Diagram</h3>
+                    <h4>Follow the instructions on the <a href="https://github.com/GeorgeBrownCollege-Toronto/Dapp-II/blob/master/notes/minimum-viable-product/lab/README.md" target="_blank">readme</a> for sequence diagram lab</h4>
+                </section>
+
+
+                <section data-markdown><textarea data-template>
+                ### Design Principles (1/5)
+                1. Design before you code, develop, and deploy a smart contract on a test chain, and thoroughly test it before you deploy on a production blockchain, because when the smart contract is deployed, it is immutable.
+                1. Define the users of and use cases for the system. Users are entities that generate the actions and the input and receive the output from the system you’ll be designing.
+                </textarea></section>
+
+                <section data-markdown><textarea data-template>
+                ### Design Principles (2/5)
+                3. Define the data assets, peer participants, and their roles, rules to be enforced, and transactions to be recorded for the system you’ll be designing.
+                4. Define a contract diagram that specifies the name, data assets, functions, and rules for execution of functions and access to the data.
+                </textarea></section>
+
+
+                <section data-markdown><textarea data-template>
+                ### Design Principles (3/5)
+                5. Use a finite state machine UML diagram to represent system dynamics such as state transitions within a smart contract.
+                6. Implement the verification and validation needed for trust intermediation by using modifiers specifying the rules and conditions in a smart contract. Typically, verification covers general rules about participants, and validation covers conditions for checking application-specific data.
+                </textarea></section>
+
+
+                <section data-markdown><textarea data-template>
+                ### Design Principles (4/5)
+                7. Ensure the privacy and security of function parameters by secure-hashing the parameters along with a single-use secret password.
+                8. Design smart contracts with only the functions and data needed for enforcing rules, compliance, regulation, provenance, logs for real-time notifications, and timestamped footprints and messages about offline operations.
+                </textarea></section>
+
+
+                <section data-markdown><textarea data-template>
+                ### Design Principles (5/5)
+                9. Use a UML sequence diagram to represent the sequence(s) in which functions within a smart contract may (and can) be called. The sequence diagram captures the dynamic operations of a system.
+                10. An important design decision in blockchain applications is to determine which data and operations are to be coded on-chain and which data and operations are to be implemented off-chain.
+                </textarea></section>
+
+                
+                <section>
+                    <h3>References</h3>
+                    <ul>
+                        <li>Blockchain In action - Bina Ramamurthy</li>
+                        <li><a href="https://github.com/ethereumbook/ethereumbook" target="_blank">Ethereumbook</a></li>
+                    </ul>
+                </section>
+
+                <section data-markdown><textarea data-template>
+
+                    ## End
+                    
+                </textarea></section>      
+
+			</div>
+		</div>
+
+		<script src="../../../reveal.js/dist/reveal.js"></script>
+		<script src="../../../reveal.js/plugin/zoom/zoom.js"></script>
+		<script src="../../../reveal.js/plugin/notes/notes.js"></script>
+		<script src="../../../reveal.js/plugin/search/search.js"></script>
+		<script src="../../../reveal.js/plugin/markdown/markdown.js"></script>
+		<script src="../../../reveal.js/plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+                transition:"none",
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+			});
+
+		</script>
+	</body>
+</html>
