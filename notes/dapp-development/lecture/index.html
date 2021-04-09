@@ -1,0 +1,341 @@
+<!doctype html>
+<html>
+    <head>
+		<meta charset="utf-8">
+
+		<title>DApp Development</title>
+
+		<meta name="description" content="A lesson on DApp development">
+		<meta name="author" content="Dhruvin Parikh">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="../../../reveal.js/dist/reset.css">
+		<link rel="stylesheet" href="../../../reveal.js/dist/reveal.css">
+		<link rel="stylesheet" href="../../../reveal.js/dist/theme/white.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+        <link rel="stylesheet" href="../../../reveal.js/plugin/highlight/monokai.css" id="highlight-theme">
+        <style>
+            .reveal .slides h1, .reveal .slides h2, .reveal .slides h3 {
+        text-transform: none;
+      }
+
+      .two-column {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .two-column em {
+        margin: 20px;
+      }
+
+      .reveal .big-and-bold {
+        font-weight: bold;
+        font-size: 135%;
+      }
+
+      .reveal .shrunk-a-bit {
+        font-size: 90%;
+      }
+
+      .reveal .shrunk-a-bit pre {
+        width: 100%;
+      }
+
+      .reveal pre {
+        width: 100%;
+      }
+
+      .reveal .highlight {
+        color: yellow;
+        font-weight: bold;
+      }
+
+      .reveal .highlightRed {
+        color: red;
+        font-weight: bold;
+      }
+
+      .reveal .highlightGreen {
+        color: green;
+        font-weight: bold;
+      }
+
+      .left {
+        left:-8.33%;
+        text-align: left;
+        float: left;
+        width:50%;
+        z-index:-10;
+      }
+
+      .right {
+        left:31.25%;
+        top: 75px;
+        text-align: left;
+        float: right;
+        z-index:-10;
+        width:50%;
+      }
+
+      table {
+        font-size: 80%;
+      }
+          </style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-markdown>
+					<textarea data-template>
+						### BCDV 1014 - DAPP II 
+						#### DApp Development
+						<div class="author">Dhruvin Parikh, April 2021</div>
+					</textarea>
+				</section>
+		
+                <section data-markdown><textarea data-template>
+                ### Tasks
+                * Developer environment setup
+                * Create smart contract shells
+                * Creating and Preparing test suites
+                * Continuous Integration setup
+                * Front end creation
+                * Containerization of DApp
+                </textarea></section>
+
+                <section data-markdown><textarea data-template>
+                ### Pre-requisites
+                * You should be able to
+                    * Write code in *Javascript*
+                    * Operate in *terminal*
+                    * Use `git`
+                    * Understand basics and how *smart contract* work
+                    * Setup *MetaMask* wallet
+                </textarea></section>
+
+
+                <section data-markdown><textarea data-template>
+                ### Developer environment setup
+                * Install node.js
+                    * Package Manager / Installer / WSL
+                    * npm registries : *libraries* and *executables*
+                    * `npx` : run executables installed locally in project
+                * Installing hardhat/truffle locally to the project is recommended
+                * Version control : `git`, GitHub, GitHub Repository   
+                * Mnemonics, private keys and API keys to be in `.gitignore` file.  
+                * Continuous Integration (Optional)
+                </textarea></section>
+
+
+                <section data-markdown><textarea data-template>
+                ### Project setup
+                ```
+                # create new directory
+                $ mkdir survey-marketplace-hardhat 
+                $ cd ./survey-marketplace-hardhat
+                # install hardhat
+                $ npm install --save-dev hardhat
+                # init project
+                $ npx hardhat
+                $ npm install --save-dev @nomiclabs/hardhat-ethers ethers
+                ```
+                ```
+                // hardhat.config.js
+                /**
+                * @type import('hardhat/config').HardhatUserConfig
+                */
+                require('@nomiclabs/hardhat-ethers');
+                module.exports = {
+                solidity: "0.6.12",
+                };
+                ```
+                ```
+                # compiling
+                $ npx hardhat compile
+                ```
+                </textarea></section>
+
+
+                <section data-markdown><textarea data-template>
+                ### Local Blockchain setup
+                ```
+                # hardhat node
+                $ npx hardhat node
+
+                # ganache-cli
+                $ npx ganache-cli
+
+                # geth
+                $ geth --datadir test-chain-dir --http --dev 
+                ```
+                </textarea></section>
+
+
+                <section data-markdown><textarea data-template>
+                ### Smart contract deployment
+                ```
+                // scripts/deploy.js
+                async function main() {
+                    // Retrieve accounts from the local node
+                    const accounts = await ethers.provider.listAccounts();
+                    console.log(accounts);
+                    // We get the contract to deploy
+                    const Greeter = await ethers.getContractFactory("Greeter");
+                    const greeter = await Greeter.deploy("Hello, Hardhat!");
+                    console.log("Greeter deployed to:", greeter.address);
+                }
+                main().then(() => process.exit(0)).catch(error => {
+                    console.error(error);
+                    process.exit(1);
+                });
+                ```
+                ```
+                # deploy
+                $ npx hardhat run --network localhost scripts/deploy.js
+                ```
+                </textarea></section>
+
+
+                <section data-markdown><textarea data-template>
+                ### Smart contract interaction
+                ```
+                // Set up an ethers contract, representing our deployed instance
+                const address = "0x7c2C195CD6D34B8F845992d380aADB2730bB9C6F"
+                const Contract = await ethers.getContractFactory("contract-name");
+                const instance = await Contract.attach(address);
+                // send a transaction to store() a new value in contract
+                await instance.store(23);
+                // Call the retrieve() function of the deployed contract
+                const value = await instance.retrieve();
+                console.log("Value is", value.toString());
+                ```
+                </textarea></section>
+
+                <section data-markdown><textarea data-template>
+                ### Smart Contract shells
+                * **SurveyFactory.sol** : The solidity contract that creates the survey to keep track of the survey’s owner and optionally charge fees from Survey Makers to run the service.
+                * **Survey.sol** : The solidity contract that works with the survey itself like adding participants, removing participants, finishing survey and more.
+                </textarea></section>
+
+                <section data-markdown><textarea data-template>
+                ### Preparing test suites
+                * We’ll be writing the test case for “Create Survey”.
+                ```
+                $ npm install --save-dev chai
+                ```                
+                ```
+                // test/Box.test.js
+                // Load dependencies
+                const { expect } = require('chai');
+                // Start test block
+                describe('Contract', function () {
+                    before(async function () {
+                        this.Contract = 
+                        await ethers.getContractFactory("contract-name");
+                    });
+                    beforeEach(async function () {
+                        this.instance = await this.Contract.deploy();
+                        await this.instance.deployed();
+                    });
+                });
+                ```
+                </textarea></section>
+
+                <section data-markdown><textarea data-template>
+                ### Test case
+                ```
+                // test/Box.test.js
+                describe('Contract', () => {
+                // Test case
+                    it('retrieve returns a value previously stored', async () => {
+                        // Store a value
+                        await this.instance.store(42);
+                        // Test if the returned value is the same one
+                        // Note that we need to use strings to compare the 
+                        // 256 bit integers
+                        expect((
+                            await this.instance
+                            .retrieve()).toString()).to.equal('42');
+                    });
+                });
+                ```
+                </textarea></section>
+
+
+                <section data-markdown><textarea data-template>
+                ### Test case #1
+                * Given that I’m the Survey creator
+                * When I try to create a new Survey and include the survey creation costs and survey reward
+                * Then I should be able to get the created survey reference number and address               
+                </textarea></section>
+
+
+                <section data-markdown><textarea data-template>
+                ### Test case #2
+                * Given that I’m the Survey creator
+                * When I try to create a new Survey and included the survey creation costs and survey reward
+                * Then I should be assigned as the owner of the newly created survey
+                </textarea></section>
+
+
+                <section data-markdown><textarea data-template>
+                ### Test case #3
+                * Given that I’m the Survey creator
+                * When I try to create a new survey without including the survey creation cost.
+                * Then I should receive an Error
+                </textarea></section>
+
+
+                <section data-markdown><textarea data-template>
+                ### Test case #4
+                * Given that I’m the Survey App Owner
+                * When I try to create a new Survey
+                * Then I should receive an Error
+                </textarea></section>
+
+
+                <section>
+                    <h3>References</h3>
+                    <ul>
+                        <li><a href="https://docs.openzeppelin.com/openzeppelin/" target="_blank">OpenZeppelin docs</a></li>
+                        <li><a href="https://hardhat.org/getting-started/" target="_blank">Hardhat Docs</a></li>
+                    </ul>
+                </section>
+
+                <section data-markdown><textarea data-template>
+
+                    ## End
+                    
+                </textarea></section>      
+
+			</div>
+		</div>
+
+		<script src="../../../reveal.js/dist/reveal.js"></script>
+		<script src="../../../reveal.js/plugin/zoom/zoom.js"></script>
+		<script src="../../../reveal.js/plugin/notes/notes.js"></script>
+		<script src="../../../reveal.js/plugin/search/search.js"></script>
+		<script src="../../../reveal.js/plugin/markdown/markdown.js"></script>
+		<script src="../../../reveal.js/plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+                transition:"none",
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+			});
+
+		</script>
+	</body>
+</html>
