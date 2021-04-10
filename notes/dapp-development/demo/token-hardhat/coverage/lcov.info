@@ -1,0 +1,17 @@
+TN:
+SF:/Users/dhruvin/gbc/bcdv-1014/token-hardhat/contracts/Token.sol
+FN:15,constructor
+FN:20,transfer
+FNF:2
+FNH:2
+FNDA:6,constructor
+FNDA:2,transfer
+DA:16,6
+DA:17,6
+DA:21,2
+DA:22,2
+LF:4
+LH:4
+BRF:0
+BRH:0
+end_of_record
