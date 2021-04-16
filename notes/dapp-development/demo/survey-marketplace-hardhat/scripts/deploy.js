@@ -10,6 +10,8 @@ async function main() {
     const SurveyFactory = await ethers.getContractFactory("SurveyFactory");
     const surveyFactory = await SurveyFactory.deploy(ethers.constants.WeiPerEther);
 
+    await surveyFactory.wait();
+
     console.log("Survey Factory address :", surveyFactory.address);
 }
 

@@ -14,7 +14,7 @@ describe("SurveyFactory", () => {
         factoryOwner = addr1;
         surveyOwner = addr2;
         SurveyFactory = await ethers.getContractFactory("SurveyFactory");
-        Survey = await ethers.getContractFactory("Survey");
+        Survey = await ethers.getContractFactory("TrustedSurvey");
     })
 
     beforeEach(async () => {

@@ -2,7 +2,7 @@
 
 pragma solidity 0.8.0;
 
-import "./Survey.sol";
+import "./TrustedSurvey.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract SurveyFactory is Ownable {
@@ -25,14 +25,14 @@ contract SurveyFactory is Ownable {
     }
 
     modifier notTheOwner() {
-        require(msg.sender != owner(),"SurveyFactory: restricted");
+        require(msg.sender != owner(), "SurveyFactory: restricted");
         _;
     }
 
     function createSurvey() external notTheOwner payable returns(uint surveyId, address newSurveyAddress) {
-        require(msg.value > surveyCreationFees,"SurveyFactory: Not enough ethers");
-        uint surveyReward = msg.value - surveyCreationFees;
-        Survey newSurvey = new Survey{value: surveyReward}(msg.sender);
+        require(msg.value > surveyCreationFees, "SurveyFactory: Not enough ethers");
+        // solhint-disable-next-line
+        TrustedSurvey newSurvey = new TrustedSurvey{value: msg.value-surveyCreationFees}(msg.sender);
         newSurveyAddress = address(newSurvey);
         surveys.push(newSurveyAddress);
         surveyId = surveys.length - 1;
