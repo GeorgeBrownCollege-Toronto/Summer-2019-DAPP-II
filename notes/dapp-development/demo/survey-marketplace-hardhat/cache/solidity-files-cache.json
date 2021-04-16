@@ -1,43 +1,9 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "/Users/dhruvin/gbc/bcdv-1014/survey-marketplace-hardhat/contracts/Survey.sol": {
-      "lastModificationDate": 1618012387126,
-      "contentHash": "c8b1535e52682eb3e204322f43e07c54",
-      "sourceName": "contracts/Survey.sol",
-      "solcConfig": {
-        "version": "0.8.0",
-        "settings": {
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "0.8.0"
-      ],
-      "artifacts": [
-        "Survey"
-      ]
-    },
     "/Users/dhruvin/gbc/bcdv-1014/survey-marketplace-hardhat/contracts/SurveyFactory.sol": {
-      "lastModificationDate": 1618012649590,
-      "contentHash": "ec25fce5347f1e86f43a094ebbcd8b3d",
+      "lastModificationDate": 1618528679568,
+      "contentHash": "ba6aa05ed8dec1ce0304ffff8bda4c33",
       "sourceName": "contracts/SurveyFactory.sol",
       "solcConfig": {
         "version": "0.8.0",
@@ -62,7 +28,7 @@
         }
       },
       "imports": [
-        "./Survey.sol",
+        "./TrustedSurvey.sol",
         "@openzeppelin/contracts/access/Ownable.sol"
       ],
       "versionPragmas": [
@@ -140,6 +106,40 @@
       ],
       "artifacts": [
         "Context"
+      ]
+    },
+    "/Users/dhruvin/gbc/bcdv-1014/survey-marketplace-hardhat/contracts/TrustedSurvey.sol": {
+      "lastModificationDate": 1618528674756,
+      "contentHash": "7f3373c0b008cefbb71cdf446282c3b1",
+      "sourceName": "contracts/TrustedSurvey.sol",
+      "solcConfig": {
+        "version": "0.8.0",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "0.8.0"
+      ],
+      "artifacts": [
+        "TrustedSurvey"
       ]
     }
   }
