@@ -1,0 +1,38 @@
+{
+  "name": "with-typescript",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "type-check": "tsc"
+  },
+  "dependencies": {
+    "@chakra-ui/core": "^0.8.0",
+    "@emotion/core": "10.0.28",
+    "@emotion/styled": "10.0.27",
+    "@ethersproject/contracts": "^5.1.0",
+    "@ethersproject/providers": "^5.1.0",
+    "@ethersproject/units": "^5.1.0",
+    "@metamask/onboarding": "^1.0.0",
+    "@uniswap/sdk": "2.0.5",
+    "@web3-react/core": "^6.1.9",
+    "@web3-react/injected-connector": "^6.0.7",
+    "@web3-react/network-connector": "^6.1.9",
+    "@web3-react/walletconnect-connector": "^6.1.9",
+    "dotenv": "^8.2.0",
+    "emotion-theming": "10.0.27",
+    "fs": "^0.0.1-security",
+    "next": "latest",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "swr": "^0.5.5"
+  },
+  "devDependencies": {
+    "@types/node": "^12.12.21",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.1",
+    "typescript": "4.0"
+  },
+  "license": "MIT"
+}
