@@ -1,0 +1,39 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "/Users/dhruvin/gbc/bcdv-1014/Dapp-II/notes/defi/demo/vanilla-escrow/contracts/Escrow.sol": {
+      "lastModificationDate": 1618760787340,
+      "contentHash": "0dc0241dacbf7780c1e09f9f8977d737",
+      "sourceName": "contracts/Escrow.sol",
+      "solcConfig": {
+        "version": "0.7.5",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.7.5"
+      ],
+      "artifacts": [
+        "Escrow"
+      ]
+    }
+  }
+}
