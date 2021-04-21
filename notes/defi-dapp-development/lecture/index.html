@@ -1,0 +1,229 @@
+<!doctype html>
+<html>
+    <head>
+		<meta charset="utf-8">
+
+		<title>DeFi DApp Development</title>
+
+		<meta name="description" content="A lesson on DeFi DApp development">
+		<meta name="author" content="Dhruvin Parikh">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="../../../reveal.js/dist/reset.css">
+		<link rel="stylesheet" href="../../../reveal.js/dist/reveal.css">
+		<link rel="stylesheet" href="../../../reveal.js/dist/theme/white.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+        <link rel="stylesheet" href="../../../reveal.js/plugin/highlight/monokai.css" id="highlight-theme">
+        <style>
+            .reveal .slides h1, .reveal .slides h2, .reveal .slides h3 {
+        text-transform: none;
+      }
+
+      .two-column {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .two-column em {
+        margin: 20px;
+      }
+
+      .reveal .big-and-bold {
+        font-weight: bold;
+        font-size: 135%;
+      }
+
+      .reveal .shrunk-a-bit {
+        font-size: 90%;
+      }
+
+      .reveal .shrunk-a-bit pre {
+        width: 100%;
+      }
+
+      .reveal pre {
+        width: 100%;
+      }
+
+      .reveal .highlight {
+        color: yellow;
+        font-weight: bold;
+      }
+
+      .reveal .highlightRed {
+        color: red;
+        font-weight: bold;
+      }
+
+      .reveal .highlightGreen {
+        color: green;
+        font-weight: bold;
+      }
+
+      .left {
+        left:-8.33%;
+        text-align: left;
+        float: left;
+        width:50%;
+        z-index:-10;
+      }
+
+      .right {
+        left:31.25%;
+        top: 75px;
+        text-align: left;
+        float: right;
+        z-index:-10;
+        width:50%;
+      }
+
+      table {
+        font-size: 80%;
+      }
+          </style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-markdown>
+					<textarea data-template>
+						### BCDV 1014 - DAPP II 
+						#### DeFi DApp Development
+						<div class="author">Dhruvin Parikh, April 2021</div>
+					</textarea>
+				</section>
+		
+                <section data-markdown><textarea data-template>
+                ### Topics
+                * Escrow
+                * Aave Ether escrow
+                * Aave DAI escrow
+                * Applications using Aave
+                </textarea></section>
+
+                <section data-markdown><textarea data-template>
+                ### Escrow
+                * An escrow is an agreement often used when transferring funds in exchange for a good or service. 
+                * Funds can be held in escrow and a third party can be chosen to "arbitrate" or approve the transfer when the service or good is provided.
+                </textarea></section>
+
+                <section data-markdown><textarea data-template>
+                ### Escrow Actors
+                * `depositor` - The payer of the Escrow to make the initial deposit.Funds will eventually go to the beneficiary
+                * `beneficiary` - The receiver of the funds. They will provide some service or good to the depositor before the funds are transferred by the arbiter.
+                * `arbiter` - The approver of the transaction. They alone can move the funds when the goods/services have been provided.
+                </textarea></section>
+
+                <section data-markdown><textarea data-template>
+                ### Escrow workflow (1/3)
+                ![escrow](escrow.png)
+                </textarea></section>
+
+                <section data-markdown><textarea data-template>
+                ### Escrow workflow (2/3)
+                * Each time that a `depositor`, `arbiter` and `beneficiary` come to an agreement upon Escrow terms, they can deploy a contract.
+                * The depositor will be the signer deploying the contract. 
+                * They will ask the arbiter and beneficiary for addresses that those two parties have access to. 
+                * Then the depositor will provide those addresses as the arguments to the Escrow contract for storage.
+                </textarea></section>
+
+                <section data-markdown><textarea data-template>
+                ### Escrow workflow (3/3)
+                * The depositor will send some ether to the contract, which will be used to pay the beneficiary after the transfer is approved by the arbiter.
+                * After the contract has been deployed with the appropriate amount of funds, the beneficiary will provide the good or service.
+                * Once the good or service is provided, the arbiter needs a way to approve the transfer of the deposit over to the beneficiary's account.
+                </textarea></section>
+
+                <section data-markdown><textarea data-template>
+                ### AAVE DAI Escrow 
+                * Use DAI as the underlying asset. 
+                * A DAI Escrow will earn interest using AAVE.
+                * *The depositor has to approved the contract to spend its funds.*
+                </textarea></section>
+
+                <section data-markdown><textarea data-template>
+                ### AAVE DAI Escrow workflow (1/2)
+                * Transfer DAI from the depositor to Escrow smart contract.
+                * The constructor of Escrow will transfer the DAI from the depositor to itself. 
+                * Deposit the DAI inside the contract into the AAVE lending pool. 
+                * The Lending Pool will take the DAI and, in exchange, mint new aDAI for the contract to hold on to.
+                </textarea></section>
+
+                <section data-markdown><textarea data-template>
+                ### AAVE DAI Escrow workflow (2/2)
+                * The DAI deposited in this Escrow will earn interest, so that by the time it is withdrawn, there will be more DAI available than initially deposited.
+                * Send the principal amount to `beneficiary`
+                * Send the interest earned to `depositor`
+                </textarea></section>
+
+                <section data-markdown><textarea data-template>
+                ### Applications using AAVE
+                * AAVE Interest Lottery
+                * AAVE Collateral Pool
+                * Flash vote using AAVE Flash loans
+                </textarea></section>
+
+                <section data-markdown><textarea data-template>
+                ### AAVE Interest Lottery
+                * All participants pool their funds together and the prize each week is the interest earned on the funds.
+                </textarea></section>
+
+                <section data-markdown><textarea data-template>
+                ### AAVE Collateral Pool
+                * If a group decide to pool their funds together in a smart contract to create a collateral pool in case any of them want to borrow ERC20 assets. 
+                * They want to earn interest on their collateral while also allowing borrowing against it.
+                * The smart contract will pool collateral and earn interest on collateral plus borrow tokens against it.
+                </textarea></section>
+
+                <section data-markdown><textarea data-template>
+                ### Flash vote
+                * Using AAVE's flash loans, we can borrow 100k DAI and use it to buy governance tokens, vote with the tokens and then sell the tokens back. All of this will happen in the span of one transaction.
+                * When a governance token uses token-weighted voting they can potentially open themselves up to this vulnerability. 
+                * There is no need to hold any governance tokens in order to have a strong vote which defeats the purpose of the governance token.                
+                </textarea></section>
+
+                <section>
+                    <h3>References</h3>
+                    <ul>
+                        <li><a href="https://docs.aave.com/developers/" target="_blank">AAVE Developer docs</a></li>
+                        <li><a href="https://blog.trailofbits.com/2020/12/16/breaking-aave-upgradeability/" target="_blank">Vulnerability in AAVE V2 by trail of bits</a></li>
+                    </ul>
+                </section>
+
+                <section data-markdown><textarea data-template>
+
+                    ## End
+                    
+                </textarea></section>      
+
+			</div>
+		</div>
+
+		<script src="../../../reveal.js/dist/reveal.js"></script>
+		<script src="../../../reveal.js/plugin/zoom/zoom.js"></script>
+		<script src="../../../reveal.js/plugin/notes/notes.js"></script>
+		<script src="../../../reveal.js/plugin/search/search.js"></script>
+		<script src="../../../reveal.js/plugin/markdown/markdown.js"></script>
+		<script src="../../../reveal.js/plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+                transition:"none",
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+			});
+
+		</script>
+	</body>
+</html>

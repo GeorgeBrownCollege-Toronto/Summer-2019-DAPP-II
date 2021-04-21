@@ -57,5 +57,4 @@ Ensure that only the arbiter can call the approve method. They will call this me
 Let's pay the **interest** earned to the depositor. Afterall if the payment took a long time, they could have been earning interest on their DAI!
 
 #### 🏁 Your Goal: Pay Depositor
-Calculate the interest earned in DAI, and transfe
-r it to the depositor.
+Calculate the interest earned in DAI, and transfer it to the depositor.
