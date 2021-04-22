@@ -58,3 +58,6 @@ Let's pay the **interest** earned to the depositor. Afterall if the payment took
 
 #### 🏁 Your Goal: Pay Depositor
 Calculate the interest earned in DAI, and transfer it to the depositor.
+
+###### Credits
+github.com/chainshot

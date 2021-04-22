@@ -152,3 +152,6 @@ After you have paid the beneficiary the initial deposit, the only ether that rem
 Send the depositor the interest earned while the ether was sitting in Escrow.
 
 >💭 There's a couple ways to do this. One helpful hint is that the interest is simply the ether leftover in the contract after sending the principal to the beneficiary. And since this contract has served its purpose, you're more than welcome to `selfdestruct` it!
+
+###### Credits
+github.com/chainshot

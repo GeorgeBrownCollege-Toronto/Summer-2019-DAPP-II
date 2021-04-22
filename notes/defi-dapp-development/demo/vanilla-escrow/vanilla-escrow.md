@@ -68,3 +68,6 @@ Let's add this mechanism to our contract!
 
 🏁 Your Goal: Security
 - If anyone tries to call `approve` other than the arbiter address, revert the transaction.
+
+###### Credits
+github.com/chainshot
