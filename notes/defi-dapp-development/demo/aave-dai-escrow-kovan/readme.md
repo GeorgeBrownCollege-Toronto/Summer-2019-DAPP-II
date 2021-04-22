@@ -30,7 +30,7 @@ To learn more about these commands run `npx hardhat help`.
 To run the front-end application:
 
 1. Compile the contracts with `npx hardhat compile` (this will make the artifacts accessible to `/app`)
-2. install `➜ npm install -g parcel@v2.0.0-beta.1`
+2. install `npm install -g parcel@v2.0.0-beta.1`
 3. Move into the `app` folder and run `parcel index.html`
 
 You can learn more about Parcel [here](https://parceljs.org/).
