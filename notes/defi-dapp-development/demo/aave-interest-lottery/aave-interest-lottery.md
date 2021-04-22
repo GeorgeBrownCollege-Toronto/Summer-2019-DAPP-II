@@ -104,3 +104,6 @@ For each ticket purchaser, withdraw their initial purchase in DAI and transfer i
 You will need to approve the pool to spend the lottery's aDai balance before you can call the withdraw function successfully. Then you'll want to withdraw dai to each participant.
 
 Finally, with the remaining aDai interest, withdraw it to the chosen winner.
+
+###### Credits
+github.com/chainshot

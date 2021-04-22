@@ -103,3 +103,6 @@ For any other user who is anonymous and has no stake in the game, there is no ab
 
 ##### 🏁 Your Goal: Members Only
 Let's make sure that only members can call `borrow` and `withdraw`. For anyone else who tries to call these methods, revert the transaction.
+
+###### Credits
+github.com/chainshot
