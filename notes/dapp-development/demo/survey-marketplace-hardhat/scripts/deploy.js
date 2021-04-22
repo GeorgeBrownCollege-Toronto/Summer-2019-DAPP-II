@@ -8,9 +8,8 @@ async function main() {
     console.log("Account balance:", (await deployer.getBalance()).toString());
 
     const SurveyFactory = await ethers.getContractFactory("SurveyFactory");
-    const surveyFactory = await SurveyFactory.deploy(ethers.constants.WeiPerEther);
-
-    await surveyFactory.wait();
+    const surveyFactory = await SurveyFactory.deploy("1000000000");
+    await surveyFactory.deployed();
 
     console.log("Survey Factory address :", surveyFactory.address);
 }

@@ -88,6 +88,19 @@
     },
     {
       "inputs": [],
+      "name": "getAllSurveys",
+      "outputs": [
+        {
+          "internalType": "address[]",
+          "name": "",
+          "type": "address[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
       "name": "owner",
       "outputs": [
         {
@@ -176,5 +189,5 @@
       "type": "function"
     }
   ],
-  "address":"0x59b01a089d20759d4b7bf557333ad26cc48bf2b5"
+  "address":"0xADAD88ceFafF009BD0bC25e0545CCAee58030487"
 }

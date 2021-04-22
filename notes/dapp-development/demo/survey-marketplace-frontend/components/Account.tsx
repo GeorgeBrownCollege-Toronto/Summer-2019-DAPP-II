@@ -1,5 +1,6 @@
-import { useState, useEffect, useRef, useLayoutEffect, Suspense, useCallback } from "react";
+import { useState, useEffect, useRef, useLayoutEffect, Suspense } from "react";
 import { Button, Box } from "@chakra-ui/core";
+import { ListItem, UnorderedList } from "@chakra-ui/react"
 import { Web3Provider } from "@ethersproject/providers";
 import { useWeb3React } from "@web3-react/core";
 import MetaMaskOnboarding from "@metamask/onboarding";
@@ -12,8 +13,8 @@ import { QueryParameters } from "../constants";
 import { getNetwork, injected } from "../connectors";
 import { UserRejectedRequestError } from "@web3-react/injected-connector";
 import { useETHBalance } from "../hooks/useETHBalance";
-import { TokenAmount } from "@uniswap/sdk";
-import { formatUnits } from "@ethersproject/units";
+import { TokenAmount } from "@uniswap/sdk"
+import { formatUnits } from "@ethersproject/units"
 
 function ETHBalance(): JSX.Element {
     const { account } = useWeb3React();
@@ -31,8 +32,7 @@ function Survey(): JSX.Element {
     const {data: surveyFactoryOwner} = useSurveyFactoryOwner(true);
     const {data: surveyCreationFee} = useSurveyCreationFees(true);
     const createSurvey = useCreateSurvey(true); 
-    const result = useSurveys(true)
-    console.log(result)
+    const {data:surveys} = useSurveys(true)
     
     const handleCreateSurvey = async () => {
         await createSurvey()
@@ -43,6 +43,10 @@ function Survey(): JSX.Element {
             <p>Survey Factory Owner : {surveyFactoryOwner}</p>
             <p>Survey Creation Fee : {formatUnits(surveyCreationFee)} ETH</p>
             <Button onClick = {handleCreateSurvey} >Create Survey</Button>
+            <p>List Of Surveys</p>
+            <UnorderedList>
+            {surveys.map((survey:string,index:number) => <ListItem key={index}>{survey}</ListItem>)}
+            </UnorderedList>
         </div>
     );
 }
