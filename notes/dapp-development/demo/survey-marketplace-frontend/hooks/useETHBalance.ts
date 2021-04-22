@@ -18,8 +18,7 @@ function getEthBalance(library: Web3Provider):(chainId:number, address:string) =
 export function useETHBalance(address?: string | null, suspense = false): SWRResponse<TokenAmount, any> {
 
     const { chainId, library } = useWeb3React()
-    console.log(address)
-
+    
     const shouldFetch = typeof chainId === 'number' && typeof address === 'string' && !!library
 
     

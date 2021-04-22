@@ -39,4 +39,8 @@ contract SurveyFactory is Ownable {
         surveyOwners[newSurveyAddress] = SurveyDetails({owner:msg.sender, id:surveyId});
         emit SurveyCreated(msg.sender, surveyId, newSurveyAddress);
     }
+
+    function getAllSurveys() public view returns(address[] memory) {
+        return surveys;
+    }
 }

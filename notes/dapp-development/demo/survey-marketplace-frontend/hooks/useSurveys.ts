@@ -4,11 +4,10 @@ import { Contract } from "@ethersproject/contracts"
 import { useContract } from './useContract';
 import SurveyFactory from "../contracts/SurveyFactory.json"
 import { useKeepSWRDATALiveAsBlocksArrive } from './useKeepSWRDATALiveAsBlocksArrive';
-import { DataType } from '../utils';
 
 function getSurveys(contract: Contract): (address: any) => Promise<any> {
     return async (): Promise<any> => {
-        return contract.surveys(0).then((result: any) => result)
+        return contract.getAllSurveys().then((result: any) => result)
     }
 }
 
@@ -21,6 +20,7 @@ export function useSurveys(suspense = false): SWRResponse<any, any> {
         getSurveys(contract as Contract), {
         suspense
     });
+    
     useKeepSWRDATALiveAsBlocksArrive(result.mutate)
 
     return result;

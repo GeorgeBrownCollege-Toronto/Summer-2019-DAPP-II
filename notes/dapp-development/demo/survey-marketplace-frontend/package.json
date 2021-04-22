@@ -9,7 +9,9 @@
   },
   "dependencies": {
     "@chakra-ui/core": "^0.8.0",
+    "@chakra-ui/react": "^1.5.2",
     "@emotion/core": "10.0.28",
+    "@emotion/react": "^11.1.5",
     "@emotion/styled": "10.0.27",
     "@ethersproject/contracts": "^5.1.0",
     "@ethersproject/providers": "^5.1.0",
@@ -22,6 +24,7 @@
     "@web3-react/walletconnect-connector": "^6.1.9",
     "dotenv": "^8.2.0",
     "emotion-theming": "10.0.27",
+    "framer-motion": "^4.1.6",
     "fs": "^0.0.1-security",
     "next": "latest",
     "react": "^17.0.1",
