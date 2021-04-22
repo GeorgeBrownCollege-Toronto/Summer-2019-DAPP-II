@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useLayoutEffect, Suspense } from "react";
+import { useState, useEffect, useRef, Suspense } from "react";
 import { Button, Box } from "@chakra-ui/core";
 import { ListItem, UnorderedList } from "@chakra-ui/react"
 import { Web3Provider } from "@ethersproject/providers";

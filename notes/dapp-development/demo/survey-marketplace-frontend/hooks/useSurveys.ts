@@ -4,7 +4,6 @@ import { Contract } from "@ethersproject/contracts"
 import { useContract } from './useContract';
 import SurveyFactory from "../contracts/SurveyFactory.json"
 import { useKeepSWRDATALiveAsBlocksArrive } from './useKeepSWRDATALiveAsBlocksArrive';
-import { DataType } from '../utils';
 
 function getSurveys(contract: Contract): (address: any) => Promise<any> {
     return async (): Promise<any> => {
