@@ -20,5 +20,6 @@ export const parseBalance = (balance:any, decimals = 18, decimalstoDisplay = 3) 
 
 export enum DataType {
     BlockNumber,
-    ETHBalance
+    ETHBalance,
+    Address
 }
